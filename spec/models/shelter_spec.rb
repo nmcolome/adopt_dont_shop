@@ -7,5 +7,6 @@ RSpec.describe Shelter, type: :model do
     it { should respond_to :address }
     it { should respond_to :city }
     it { should respond_to :state }
+    it { should respond_to :zip }
   end
 end
