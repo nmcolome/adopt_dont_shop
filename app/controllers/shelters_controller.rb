@@ -17,7 +17,7 @@ class SheltersController < ApplicationController
     if @shelter.save
       redirect_to shelters_path
     else
-      # render :new
+      render :new
     end
   end
 

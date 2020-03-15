@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Shelter creation" do
   describe "User links from shelter index page" do
-    describe "fills out a form for a new shelter" do
+    context "fills out form with complete information for a new shelter" do
       it "redirected to the shelters index page and sees the new shelter listed" do
         visit "/shelters"
 
@@ -19,6 +19,21 @@ RSpec.describe "Shelter creation" do
 
         expect(current_path).to eq("/shelters")
         expect(page).to have_content("Rescue Animals")
+      end
+    end
+
+    context "fills out form with incomplete information for a new shelter" do
+      it "with only the state, it renders the form again and user can see related errors" do
+        visit shelters_new_path
+
+        select "CALIFORNIA", from: "shelter[state]"
+        click_on "Create Shelter"
+
+        expect(page).to have_content("4 errors prohibited this shelter from being saved:")
+        expect(page).to have_content("Name can't be blank")
+        expect(page).to have_content("Address can't be blank")
+        expect(page).to have_content("City can't be blank")
+        expect(page).to have_content("Zip can't be blank")
       end
     end
   end
