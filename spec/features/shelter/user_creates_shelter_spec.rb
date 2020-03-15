@@ -11,9 +11,9 @@ RSpec.describe "Shelter creation" do
         expect(current_path).to eq("/shelters/new")
 
         fill_in "shelter[name]", with: "Rescue Animals"
-        fill_in "shelter[adress]", with: "282 Kevin Brook"
+        fill_in "shelter[address]", with: "282 Kevin Brook"
         fill_in "shelter[city]", with: "Imogeneborough"
-        select "CA", from: "shelter[state]"
+        select "CALIFORNIA", from: "shelter[state]"
         fill_in "shelter[zip]", with: "58517"
         click_on "Create Shelter"
 
