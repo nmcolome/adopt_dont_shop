@@ -23,5 +23,21 @@ RSpec.describe "Shelter update" do
         expect(page).to have_content("1946 Market St")
       end
     end
+
+    context "leaves an empty field when updating a shelter's information" do
+      it "it renders the form again and user can see related errors" do
+        shelter = create(:shelter)
+
+        visit "/shelters/#{shelter.id}"
+
+        click_on "Update Shelter"
+
+        fill_in "shelter[address]", with: ""
+        click_on "Update Shelter"
+
+        expect(page).to have_content("1 error prohibited this shelter from being saved:")
+        expect(page).to have_content("Address can't be blank")
+      end
+    end
   end
 end
