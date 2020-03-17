@@ -24,7 +24,7 @@ RSpec.describe "Shelter creation" do
 
     context "fills out form with incomplete information for a new shelter" do
       it "with only the state, it renders the form again and user can see related errors" do
-        visit shelters_new_path
+        visit new_shelter_path
 
         select "CALIFORNIA", from: "shelter[state]"
         click_on "Create Shelter"

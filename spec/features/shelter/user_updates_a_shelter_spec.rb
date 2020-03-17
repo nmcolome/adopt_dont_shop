@@ -10,18 +10,13 @@ RSpec.describe "Shelter update" do
 
         click_on "Update Shelter"
 
-        expect(page).to have_content(shelter.name)
-        expect(page).to have_content("Address")
-        expect(page).to have_content(shelter.address)
-        expect(page).to have_content("City")
-        expect(page).to have_content(shelter.city)
-        expect(page).to have_content("State")
-        expect(page).to have_content(shelter.state)
-        expect(page).to have_content("Zip")
-        expect(page).to have_content(shelter.zip)
+        expect(page).to have_field('shelter[name]', with: shelter.name)
+        expect(page).to have_field('shelter[address]', with: shelter.address)
+        expect(page).to have_field('shelter[city]', with: shelter.city)
+        expect(page).to have_field('shelter[state]', with: shelter.state)
+        expect(page).to have_field('shelter[zip]', with: shelter.zip)
 
         fill_in "shelter[address]", with: "1946 Market St"
-
         click_on "Update Shelter"
 
         expect(current_path).to eq(shelter_path(shelter.id))
