@@ -9,7 +9,7 @@ RSpec.describe "Pets Index" do
 
     expect(page).to have_content(pets[0].name)
     expect(page).to have_content(pets[4].name)
-    expect(page).to have_content(pets[0].image)
+    expect(page).to have_css("img[src*='placedog.net']")
     expect(page).to have_content(pets[0].approximate_age)
     expect(page).to have_content(pets[0].sex)
     expect(page).to have_content(shelter.name)
