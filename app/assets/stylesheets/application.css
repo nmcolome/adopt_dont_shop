@@ -163,6 +163,13 @@ section {
   background-color: #E82117;
 }
 
+.show {
+  width: 66.67%;
+  padding: 16px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 /* Forms */
 
 .form {
