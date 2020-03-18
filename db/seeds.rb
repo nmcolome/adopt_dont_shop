@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+names = ["Pet Society", "Animal Shelter", "Animal Rescue", "Pet Avengers", "Friendly Animal Neighbour", "Animal Society", "Dog Shelter", "Lend a Helping Paw", "Cat Shelter"]
+
+names.each do |name|
+  Shelter.create!(
+                  name: name,
+                  address: Faker::Address.street_address,
+                  city: Faker::Address.city,
+                  state: Faker::Address.state_abbr,
+                  zip: Faker::Address.zip
+                )
+end

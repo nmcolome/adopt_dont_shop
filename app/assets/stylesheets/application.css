@@ -13,3 +13,144 @@
  *= require_tree .
  *= require_self
  */
+
+/* general */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.3em;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  background-color: #F5F5F5;
+  padding: 16px;
+}
+
+.logo {
+  margin: 0.15em 0;
+}
+
+.purple {
+  color: #402680;
+}
+
+.pink {
+  color: #7F4DFF;
+}
+
+/* Main Pages */
+
+section {
+  margin: 16px;
+}
+
+.page-title {
+  text-align: center;
+  color: #240080;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-3 {
+  width: 33.33%;
+  height: 25vh;
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px;
+  margin: 8px;
+  background-color: #F5F5F5;
+  border-radius: 5%;
+  color: #000000;
+}
+
+.button:hover {
+  background-color: #240080;
+  color: #ffffff;
+}
+
+.button:active {
+  background-color: #240080;
+  color: #ffffff;
+}
+
+.box-title {
+  text-transform: uppercase;
+  color: white;
+  width: 50%;
+  padding: 4px;
+}
+
+.shelter-card {
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-7 {
+  background-image: url("jay-wennington-CdK2eYhWfQ0-unsplash.jpg");
+}
+
+.index-1 {
+  background-image: url("jay-wennington-xOs6gB-f5Ck-unsplash.jpg");
+}
+
+.index-2 {
+  background-image: url("jay-wennington-G23T_r_k_Ro-unsplash.jpg");
+}
+
+.index-6 {
+  background-image: url("jay-wennington-AeikTbqNyqw-unsplash.jpg");
+}
+
+.index-4 {
+  background-image: url("jay-wennington-vXjNwYi2B8M-unsplash.jpg");
+}
+
+.index-5 {
+  background-image: url("jay-wennington-FOYBltJE7ZU-unsplash.jpg");
+}
+
+.index-3 {
+  background-image: url("jay-wennington-Yzdk2tWgOP4-unsplash.jpg");
+}
+
+.index-0 {
+  background-image: url("jay-wennington-s-fD5Tpew2k-unsplash.jpg");
+}
+
+.index-8 {
+  background-image: url("jay-wennington-_CrbZkVXoEY-unsplash.jpg");
+}
+
+.shelter-card:hover .box-title {
+  border: 2px solid white;
+}
+
+/* Show Pages */
+
+.bold {
+  font-weight: bold;
+}
+
+.warning:hover {
+  background-color: #E82117;
+}

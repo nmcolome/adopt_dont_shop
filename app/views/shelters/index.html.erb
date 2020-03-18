@@ -1,7 +1,11 @@
-<%= link_to "New Shelter", "/shelters/new" %>
-
-<h1>List of Shelters</h1>
-
-<% @shelters.each do |shelter| %>
-  <%= shelter.name %>
-<% end %>
+<section>
+  <h1 class="page-title">List of Shelters</h1>
+  <%= link_to "New Shelter", "/shelters/new", class: "button" %>
+  <div class="container">
+    <% @shelters.each_with_index do |shelter, index| %>
+      <div class="col-3 shelter-card index-<%= index %>">
+        <h3 class="box-title"><%= shelter.name %></h3>
+      </div>
+    <% end %>
+  </div>
+</section>
