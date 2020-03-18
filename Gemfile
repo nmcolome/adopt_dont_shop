@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'faker'
 
 group :development, :test do
   gem 'pry'
@@ -38,7 +39,6 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'factory_bot_rails'
-  gem 'faker'
 end
 
 group :development do
