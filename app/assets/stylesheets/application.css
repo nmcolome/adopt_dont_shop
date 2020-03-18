@@ -64,8 +64,14 @@ section {
   justify-content: space-between;
 }
 
-.col-3 {
+.index-link {
+  display: block;
   width: 33.33%;
+  text-decoration: none;
+}
+
+.col-12 {
+  width: 100%;
   height: 25vh;
   text-align: center;
 }
