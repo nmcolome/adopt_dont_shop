@@ -34,7 +34,7 @@ class SheltersController < ApplicationController
   end
 
   def destroy
-    @shelter.delete
+    @shelter.destroy
     redirect_to shelters_path
   end
 

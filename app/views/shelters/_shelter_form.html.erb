@@ -1,36 +1,19 @@
-<%= form_with model: @shelter, local: true do |f| %>
-  <% if @shelter.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@shelter.errors.count, "error") %> prohibited this shelter from being saved:</h2>
-  
-      <ul>
-      <% @shelter.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div>
+<section class="form">
+  <%= form_with model: @shelter, local: true do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
-  </div>
-  <div>
+    <p class="red"><%= @shelter.errors.messages[:name][0] %></p>
     <%= f.label :address %>
     <%= f.text_field :address%>
-  </div>
-  <div>
+    <p class="red"><%= @shelter.errors.messages[:address][0] %></p>
     <%= f.label :city %>
     <%= f.text_field :city%>
-  </div>
-  <div>
+    <p class="red"><%= @shelter.errors.messages[:city][0] %></p>
     <%= f.label :state %>
     <%= f.select(:state, Shelter.state_abbr) %>
-  </div>
-  <div>
     <%= f.label :zip %>
     <%= f.text_field :zip%>
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
+    <p class="red"><%= @shelter.errors.messages[:zip][0] %></p>
+    <%= f.submit class: "submit" %>
+  <% end %>
+</section>

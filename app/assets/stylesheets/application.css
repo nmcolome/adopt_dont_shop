@@ -21,6 +21,7 @@
 
 body {
   margin: 0;
+  font-family: Helvetica, sans-serif;
 }
 
 h1 {
@@ -54,7 +55,7 @@ section {
 
 .page-title {
   text-align: center;
-  color: #240080;
+  color: #402680;
 }
 
 .container {
@@ -75,17 +76,17 @@ section {
   padding: 8px;
   margin: 8px;
   background-color: #F5F5F5;
-  border-radius: 5%;
+  border-radius: 5px;
   color: #000000;
 }
 
 .button:hover {
-  background-color: #240080;
+  background-color: #402680;
   color: #ffffff;
 }
 
 .button:active {
-  background-color: #240080;
+  background-color: #402680;
   color: #ffffff;
 }
 
@@ -153,4 +154,47 @@ section {
 
 .warning:hover {
   background-color: #E82117;
+}
+
+/* Forms */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 33.33%;
+  padding: 20px 32px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 1.1em;
+}
+
+.form label, input, select {
+  display: inline-block;
+  width: 100%;
+  padding: 4px;
+}
+
+.form label {
+  margin-bottom: 4px;
+  padding: 0;
+}
+
+.submit {
+  background-color: #402680;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.red {
+  color: #E82117;
+  margin: 0;
+  margin-bottom: 16px;
+  font-size: 0.8em;
+}
+
+select {
+  margin-bottom: 16px;
 }
