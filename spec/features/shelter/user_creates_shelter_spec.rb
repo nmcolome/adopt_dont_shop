@@ -29,11 +29,7 @@ RSpec.describe "Shelter creation" do
         select "CALIFORNIA", from: "shelter[state]"
         click_on "Create Shelter"
 
-        expect(page).to have_content("4 errors prohibited this shelter from being saved:")
-        expect(page).to have_content("Name can't be blank")
-        expect(page).to have_content("Address can't be blank")
-        expect(page).to have_content("City can't be blank")
-        expect(page).to have_content("Zip can't be blank")
+        expect(page).to have_content("Field required")
       end
     end
   end

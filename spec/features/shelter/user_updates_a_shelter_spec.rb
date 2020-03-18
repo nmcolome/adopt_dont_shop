@@ -35,8 +35,7 @@ RSpec.describe "Shelter update" do
         fill_in "shelter[address]", with: ""
         click_on "Update Shelter"
 
-        expect(page).to have_content("1 error prohibited this shelter from being saved:")
-        expect(page).to have_content("Address can't be blank")
+        expect(page).to have_content("Field required")
       end
     end
   end
