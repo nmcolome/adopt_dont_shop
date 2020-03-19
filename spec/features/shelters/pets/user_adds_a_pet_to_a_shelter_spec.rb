@@ -10,7 +10,7 @@ RSpec.describe "Shelter Pet Creations" do
 
         click_on "Create Pet"
 
-        expect(current_path).to eq(new_shelter_pet(shelter))
+        expect(current_path).to eq(new_shelter_pet_path(shelter))
 
         fill_in "pet[image]", with: "https://placedog.net/500?id=132"
         fill_in "pet[name]", with: "Hush Puppy"

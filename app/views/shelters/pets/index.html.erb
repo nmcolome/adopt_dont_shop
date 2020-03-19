@@ -1,5 +1,6 @@
 <section>
   <h1><%= @shelter.name %></h1>
+  <%= link_to "Create Pet", new_shelter_pet_path(@shelter) %>
   <h3>Pets available for adoption:</h3>
   <div class="container">
     <% @pets.each do |pet| %>
