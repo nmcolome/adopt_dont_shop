@@ -18,4 +18,12 @@ RSpec.describe Pet, type: :model do
     it { should define_enum_for(:sex).with_values([:female, :male]) }
     it { should define_enum_for(:status).with_values([:adoptable, :pending]) }
   end
+
+  describe "defaults" do
+    it "should have a status of adoptable by default" do
+      pet = create(:pet)
+
+      expect(pet.status).to eq("adoptable")
+    end
+  end
 end
