@@ -26,4 +26,13 @@ RSpec.describe Pet, type: :model do
       expect(pet.status).to eq("adoptable")
     end
   end
+
+  describe "validations" do
+    it { should validate_presence_of(:image).with_message("Field required") }
+    it { should validate_presence_of(:name).with_message("Field required") }
+    it { should validate_presence_of(:description).with_message("Field required") }
+    it { should validate_presence_of(:approximate_age).with_message("Field required") }
+    it { should validate_presence_of(:sex).with_message("Field required") }
+    it { should validate_presence_of(:shelter_id).with_message("Field required") }
+  end
 end

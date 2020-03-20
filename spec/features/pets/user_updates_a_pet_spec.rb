@@ -28,5 +28,22 @@ RSpec.describe "Pet Update" do
         expect(page).to have_content(pet.name)
       end
     end
+
+    context "user leaves an empty field in the form" do
+      it "user sees the form and the related error message" do
+        shelter = create(:shelter)
+        pet = create(:pet, shelter_id: shelter.id)
+
+        visit pet_path(pet)
+
+        click_on "Update Pet"
+
+        fill_in "pet[image]", with: ""
+        fill_in "pet[approximate_age]", with: ""
+        click_on "Update Pet"
+
+        expect(page).to have_content("Field required", count: 2)
+      end
+    end
   end
 end

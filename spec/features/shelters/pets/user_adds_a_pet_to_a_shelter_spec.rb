@@ -27,5 +27,22 @@ RSpec.describe "Shelter Pet Creations" do
         expect(shelter.pets[0].status).to eq("adoptable")
       end
     end
+
+    context "user sends an incomplete form" do
+      it "it renders the form again and they see error messages regarding missing data" do
+        shelter = create(:shelter)
+
+        visit shelter_pets_path(shelter)
+
+        click_on "Create Pet"
+
+        expect(current_path).to eq(new_shelter_pet_path(shelter))
+
+        click_on "Create Pet"
+
+        expect(page).to have_content("Field required", count: 5)
+        expect(shelter.pets.count).to eq(0)
+      end
+    end
   end
 end

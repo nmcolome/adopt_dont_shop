@@ -16,7 +16,7 @@ class Shelters::PetsController < ApplicationController
     if @pet.save
       redirect_to shelter_pets_path(@shelter)
     else
-      # TODO: sad path
+      render :new
     end
   end
 

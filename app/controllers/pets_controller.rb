@@ -17,7 +17,7 @@ class PetsController < ApplicationController
     if @pet.update(pet_params)
       redirect_to pet_path(@pet)
     else
-      # TODO: sad path
+      render :edit
     end
   end
 
