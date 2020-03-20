@@ -16,7 +16,7 @@ RSpec.describe "Pet Update" do
         expect(page).to have_field("pet[name]", with: pet.name)
         expect(page).to have_field("pet[description]", with: pet.description)
         expect(page).to have_field("pet[approximate_age]", with: pet.approximate_age)
-        expect(page).to have_field("pet[sex]", with: pet.sex)
+        expect(page).to have_checked_field("pet_sex_male")
 
         fill_in "pet[image]", with: "https://placedog.net/500?id=132"
         fill_in "pet[approximate_age]", with: 5
