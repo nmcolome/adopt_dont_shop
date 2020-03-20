@@ -13,4 +13,29 @@ RSpec.describe "Pet Show" do
     expect(page).to have_content(pet.sex)
     expect(page).to have_content(pet.status)
   end
+
+  context "user links" do
+    it "from shelter pets index page" do
+      shelter = create(:shelter)
+      pet = create(:pet, shelter_id: shelter.id)
+
+      visit shelter_pets_path(shelter)
+
+      click_on pet.name
+
+      expect(current_path).to eq(pet_path(pet))
+      expect(page).to have_content(pet.name)
+    end
+
+    it "from pets index page" do
+      pet = create(:pet)
+
+      visit pets_path
+
+      click_on pet.name
+
+      expect(current_path).to eq(pet_path(pet))
+      expect(page).to have_content(pet.name)
+    end
+  end
 end
