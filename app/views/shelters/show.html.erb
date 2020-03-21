@@ -4,7 +4,8 @@
     <p>
       <span class="bold">Address:</span> <%= @shelter.address %>, <%= @shelter.city %>, <%= @shelter.state %> <%= @shelter.zip %>
     </p>
-    <%= link_to "Update Shelter", edit_shelter_path(@shelter), class: "button" %>
     <%= link_to "Delete Shelter", shelter_path(@shelter), method: :delete, class: "button warning" %>
+    <%= link_to "Update Shelter", edit_shelter_path(@shelter), class: "button" %>
+    <%= link_to "See Pets", shelter_pets_path(@shelter), class: "button" %>
   </div>
 </section>
