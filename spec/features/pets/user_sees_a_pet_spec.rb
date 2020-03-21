@@ -14,6 +14,28 @@ RSpec.describe "Pet Show" do
     expect(page).to have_content(pet.status)
   end
 
+  context "can change a pet adoption status" do
+    it "if it's adoptable it can click a link to change to adoption pending" do
+      pet = create(:pet)
+
+      visit pet_path(pet)
+      click_on "Change to Adoption Pending"
+
+      expect(page).to have_content(pet.name)
+      expect(page).to have_link("Change to Adoptable")
+    end
+
+    it "if it's pending it can click a link to change to adoptable" do
+      pending_pet = create(:pet, status: "pending")
+
+      visit pet_path(pending_pet)
+      click_on "Change to Adoptable"
+
+      expect(page).to have_content(pending_pet.name)
+      expect(page).to have_link("Change to Adoption Pending")
+    end
+  end
+
   context "user links" do
     it "from shelter pets index page" do
       shelter = create(:shelter)
