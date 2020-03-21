@@ -30,4 +30,13 @@ RSpec.describe "Shelter Pets Index" do
       expect(page).to have_content(pets[4].name)
     end
   end
+
+  it "User sees pet count" do
+    shelter = create(:shelter)
+    pets = create_list(:pet, 5, shelter_id: shelter.id)
+
+    visit shelter_pets_path(shelter)
+
+    expect(page).to have_content("Number of pets in #{shelter.name}: 5")
+  end
 end
