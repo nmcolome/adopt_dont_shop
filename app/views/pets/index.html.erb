@@ -1,17 +1,19 @@
 <section>
-  <% @pets.each do |pet| %>
-    <a href="<%= pet_path(pet) %>">
-      <div class="pet-card">
-        <div class="img-container">
-          <%= image_tag pet.image %>
+  <h1 class="page-title">List of All Pets</h1>
+  <div class="pet-container">
+    <% @pets.each do |pet| %>
+      <a class="pet-link" href="<%= pet_path(pet) %>">
+        <div class="pet-card">
+          <div class="img-container">
+            <%= image_tag pet.image %>
+          </div>
+          <div class="card-info">
+            <h1 class="card-title detail"><%= pet.name %></h1>
+            <p class="card-text small"><%= pet.approximate_age %> years old, <%= pet.sex %></p>
+            <p class="card-text small"><span class="bold">Shelter:</span> <%= pet.shelter.name %></p>
+          </div>
         </div>
-        <div class="card-info">
-          <h1><%= pet.name %></h1>
-          <p><%= pet.approximate_age %> years old, approximately </p>
-          <p><%= pet.sex %></p>
-          <p><span class="bold">Shelter:</span> <%= pet.shelter.name %></p>
-        </div>
-      </div>
-    </a>
-  <% end %>
+      </a>
+    <% end %>
+  </div>
 </section>
