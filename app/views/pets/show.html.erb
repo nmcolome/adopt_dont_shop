@@ -16,7 +16,7 @@
          <% if @pet.adoptable? %>
            <%= link_to "Change to Adoption Pending", adoptable_pets_path(@pet), method: :patch, class: "button" %>
          <% else %>
-           <%= link_to "Change to Adoptable", class: "button" %>
+           <%= link_to "Change to Adoptable", pending_pets_path(@pet), method: :patch, class: "button" %>
          <% end %>
       </div>
     </div>

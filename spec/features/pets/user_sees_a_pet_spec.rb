@@ -17,20 +17,24 @@ RSpec.describe "Pet Show" do
   context "can change a pet adoption status" do
     it "if it's adoptable it can click a link to change to adoption pending" do
       pet = create(:pet)
+      expect(pet.status).to eq("adoptable")
 
       visit pet_path(pet)
       click_on "Change to Adoption Pending"
 
+      expect(Pet.first.status).to eq("pending")
       expect(page).to have_content(pet.name)
       expect(page).to have_link("Change to Adoptable")
     end
 
-    skip it "if it's pending it can click a link to change to adoptable" do
+    it "if it's pending it can click a link to change to adoptable" do
       pending_pet = create(:pet, status: "pending")
+      expect(pending_pet.status).to eq("pending")
 
       visit pet_path(pending_pet)
       click_on "Change to Adoptable"
 
+      expect(Pet.first.status).to eq("adoptable")
       expect(page).to have_content(pending_pet.name)
       expect(page).to have_link("Change to Adoption Pending")
     end
