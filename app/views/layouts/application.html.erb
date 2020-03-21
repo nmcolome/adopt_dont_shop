@@ -10,10 +10,10 @@
 
   <body>
     <nav class="navbar">
-      <a href="/" class="logo"><h1><span class="purple">Adopt</span><span class="pink">Don't</span><span class="purple">Shop</span></h1></a>
-      
+      <a href="/" class="logo"><h1><span class="purple">Adopt</span><span class="light-purple">Don't</span><span class="purple">Shop</span></h1></a>
       <div class="links">
-        <!-- pending -->
+        <%= link_to "All Pets", pets_path, class: "nav-link" %>
+        <%= link_to "All Shelters", shelters_path, class: "nav-link" %>
       </div>
     </nav>
     <%= yield %>
