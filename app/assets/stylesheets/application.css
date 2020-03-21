@@ -282,7 +282,7 @@ select {
 
 .card-title {
   font-size: 1.5em;
-  margin: 0.5em;
+  margin: 0.4em;
   font-weight: normal;
 }
 
@@ -298,4 +298,32 @@ select {
 
 .small {
   font-size: 0.8em;
+}
+
+/* Pet Show Page */
+
+.horizontal-card {
+  display: flex;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+.img-horizontal {
+  width: 35%;
+  height: auto;
+}
+
+.img-horizontal img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 5px;
+}
+
+.info {
+  width: 63%;
+  padding: 8px 32px;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
