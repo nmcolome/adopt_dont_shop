@@ -3,7 +3,7 @@
   <%= link_to "Create Pet", new_shelter_pet_path(@shelter), class: "button" %>
   <h3>Number of pets in <%= @shelter.name %>: <%= @pets.count %></h3>
   <div class="pet-container">
-    <% @pets.each do |pet| %>
+    <% @pets.order("status").each do |pet| %>
       <a class="pet-link" href="<%= pet_path(pet) %>">
         <div class="pet-card">
           <div class="img-container">
