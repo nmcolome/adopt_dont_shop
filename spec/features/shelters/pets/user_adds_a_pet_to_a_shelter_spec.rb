@@ -16,7 +16,7 @@ RSpec.describe "Shelter Pet Creations" do
         fill_in "pet[name]", with: "Hush Puppy"
         fill_in "pet[description]", with: "After an exciting life in the world of fashion, this basset hound wants to settle down and enjoy life with a loving family. He has a bright and quirky personality, loves to stay comfy but enjoys spending a day in the park, like any other dog."
         fill_in "pet[approximate_age]", with: "1"
-        fill_in "pet[sex]", with: "male"
+        choose "pet_sex_male"
         click_on "Create Pet"
 
         expect(current_path).to eq(shelter_pets_path(shelter))
