@@ -25,7 +25,7 @@ RSpec.describe "Pet Show" do
       expect(page).to have_link("Change to Adoptable")
     end
 
-    it "if it's pending it can click a link to change to adoptable" do
+    skip it "if it's pending it can click a link to change to adoptable" do
       pending_pet = create(:pet, status: "pending")
 
       visit pet_path(pending_pet)
