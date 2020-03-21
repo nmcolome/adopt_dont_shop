@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "Shelter Pets Index" do
   before :each do
     @shelter = create(:shelter)
-    @last_pet = create(:pet, shelter_id: @shelter.id, status: "pending")
+    @last_pet = create(:pet, name: "Rocky", shelter_id: @shelter.id, status: "pending")
     @pets = create_list(:pet, 5, shelter_id: @shelter.id)
   end
 
@@ -52,12 +52,10 @@ RSpec.describe "Shelter Pets Index" do
 
       click_on "Only Adoptable Pets"
 
-      expect(current_path).to eq('/pets?adoptable=true')
+      expect(current_url).to eq(shelter_pets_url(@shelter, adoptable: "true"))
       expect(page).to have_content(@pets[0].name)
-      expect(page).to have_css("div.pet-card", count: 6)
+      expect(page).to have_css("div.pet-card", count: 5)
       expect(page).to_not have_content(@last_pet.name)
-      expect(page).to have_link("All Pets")
-      expect(page).to have_link("Only Adoption-Pending Pets")
     end
 
     it "user selects to show only adoption-pending pets" do
@@ -65,12 +63,20 @@ RSpec.describe "Shelter Pets Index" do
 
       click_on "Only Adoption-Pending Pets"
 
-      expect(current_path).to eq('/pets?adoptable=false')
+      expect(current_url).to eq(shelter_pets_url(@shelter, adoptable: "false"))
       expect(page).to have_content(@last_pet.name)
       expect(page).to_not have_content(@pets[0].name)
       expect(page).to have_css("div.pet-card", count: 1)
-      expect(page).to have_link("All Pets")
-      expect(page).to have_link("Only Adoptable Pets")
+    end
+
+    it "user selects to show all pets within that shelter" do
+      visit shelter_pets_path(@shelter)
+
+      click_on "All Pets in Shelter"
+
+      expect(page).to have_content(@last_pet.name)
+      expect(page).to have_content(@pets[4].name)
+      expect(page).to have_css("div.pet-card", count: 6)
     end
   end
 end
