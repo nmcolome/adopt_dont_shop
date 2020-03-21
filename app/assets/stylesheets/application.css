@@ -202,7 +202,7 @@ section {
   font-size: 0.9em;
 }
 
-.red {
+.error {
   color: #E82117;
   margin: 0;
   margin-bottom: 16px;
@@ -211,4 +211,36 @@ section {
 
 select {
   margin-bottom: 16px;
+}
+
+/* Pet Forms */
+
+.radio-options {
+  display: flex;
+  justify-content: space-around;
+}
+
+.option {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.option input {
+  height: 100%;
+  width: 20px;
+}
+
+.option label {
+  height: 100%;
+  margin: 0;
+}
+
+.option .field_with_errors {
+  height: 100%;
+}
+
+.option .field_with_errors input {
+  margin: 0;
+  margin-right: 4px;
 }
