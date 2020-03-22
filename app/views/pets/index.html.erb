@@ -1,5 +1,8 @@
 <section>
   <h1 class="page-title">List of All Pets</h1>
+  <%= link_to "Only Adoptable Pets", pets_path(adoptable: "true"), class: "button" %>
+  <%= link_to "Only Adoption-Pending Pets", pets_path(adoptable: "false"), class: "button" %>
+  <%= link_to "All Pets in Shelter", pets_path, class: "button" %>
   <div class="pet-container">
     <% @pets.each do |pet| %>
       <a class="pet-link" href="<%= pet_path(pet) %>">

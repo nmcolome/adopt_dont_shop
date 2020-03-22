@@ -1,9 +1,12 @@
 <section>
   <h1 class="page-title"><%= @shelter.name %></h1>
   <%= link_to "Create Pet", new_shelter_pet_path(@shelter), class: "button" %>
-  <h3>Pets available for adoption:</h3>
+  <%= link_to "Only Adoptable Pets", shelter_pets_path(@shelter, adoptable: "true"), class: "button" %>
+  <%= link_to "Only Adoption-Pending Pets", shelter_pets_path(@shelter, adoptable: "false"), class: "button" %>
+  <%= link_to "All Pets in Shelter", shelter_pets_path(@shelter), class: "button" %>
+  <h3>Number of pets in <%= @shelter.name %>: <%= @pets.count %></h3>
   <div class="pet-container">
-    <% @pets.each do |pet| %>
+    <% @pets.order("status").each do |pet| %>
       <a class="pet-link" href="<%= pet_path(pet) %>">
         <div class="pet-card">
           <div class="img-container">

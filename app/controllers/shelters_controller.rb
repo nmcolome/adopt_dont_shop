@@ -2,7 +2,13 @@ class SheltersController < ApplicationController
   before_action :find_shelter, only: [:show, :edit, :update, :destroy]
 
   def index
-    @shelters = Shelter.all
+    @shelters = if params["sort"] == "pets"
+                  Shelter.sort_by_adoptable_pets
+                elsif params["sort"] == "abc"
+                  Shelter.sort_by_name
+                else
+                  Shelter.all
+                end
   end
 
   def show

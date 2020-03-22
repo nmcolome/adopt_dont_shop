@@ -56,4 +56,12 @@ class Shelter < ApplicationRecord
       ["WYOMING", "WY"]
     ]
   end
+
+  def self.sort_by_adoptable_pets
+    joins(:pets).where("pets.status = 0").group(:id).order("COUNT(pets.id) DESC", :id)
+  end
+
+  def self.sort_by_name
+    order(name: :asc)
+  end
 end

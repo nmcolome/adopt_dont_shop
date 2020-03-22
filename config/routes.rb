@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get "/pets/:id/edit", to: "pets#edit", as: "edit_pet"
   patch "/pets/:id", to: "pets#update"
   delete "/pets/:id", to: "pets#destroy"
+  patch "/pets/:id/adoptable", to: "pets/adoptable#update", as: "adoptable_pets"
+  patch "/pets/:id/pending", to: "pets/pending#update", as: "pending_pets"
   get "/shelters/:shelter_id/pets", to: "shelters/pets#index", as: "shelter_pets"
   post "/shelters/:shelter_id/pets", to: "shelters/pets#create"
   get "/shelters/:shelter_id/pets/new", to: "shelters/pets#new", as: "new_shelter_pet"
