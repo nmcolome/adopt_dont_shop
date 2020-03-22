@@ -3,6 +3,7 @@
   <%= link_to "New Shelter", "/shelters/new", class: "button" %>
   <%= link_to "Sort by Total Adoptable Pets", shelters_path(sort: "pets"), class: "button" %>
   <%= link_to "Sort in Alphabetical Order", shelters_path(sort: "abc"), class: "button" %>
+  <%= link_to "No Sort", shelters_path, class: "button" %>
   <div class="container">
     <% @shelters.each_with_index do |shelter, index| %>
       <a class="index-link" href="<%= shelter_path(shelter) %>">

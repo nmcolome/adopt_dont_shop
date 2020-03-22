@@ -38,5 +38,15 @@ RSpec.describe "Shelter's index" do
         expect(page).to have_css("a.index-link:last-child", text: @shelter_z.name)
       end
     end
+
+    it "has no sort link" do
+      visit shelters_path
+      click_on "No Sort"
+
+      within ".container" do
+        expect(page).to have_css("a.index-link:first-child", text: @shelter_a.name)
+        expect(page).to have_css("a.index-link:last-child", text: @shelter_p.name)
+      end
+    end
   end
 end
