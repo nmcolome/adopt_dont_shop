@@ -1,6 +1,7 @@
 class Shelters::PetsController < ApplicationController
+  before_action :set_shelter
+
   def index
-    @shelter = Shelter.find(params[:shelter_id])
     @pets = if params["adoptable"] == "true"
             @shelter.pets.where(status:"adoptable")
           elsif params["adoptable"] == "false"
@@ -11,12 +12,10 @@ class Shelters::PetsController < ApplicationController
   end
 
   def new
-    @shelter = Shelter.find(params[:shelter_id])
     @pet = @shelter.pets.new
   end
 
   def create
-    @shelter = Shelter.find(params[:shelter_id])
     @pet = @shelter.pets.new(pet_params)
 
     if @pet.save
@@ -29,5 +28,9 @@ class Shelters::PetsController < ApplicationController
   private
     def pet_params
       params.require(:pet).permit(:image, :name, :description, :approximate_age, :sex)
+    end
+
+    def set_shelter
+      @shelter = Shelter.find(params[:shelter_id])
     end
 end
