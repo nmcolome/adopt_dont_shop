@@ -4,11 +4,10 @@ RSpec.describe "Shelter creation" do
   describe "User links from shelter index page" do
     context "fills out form with complete information for a new shelter" do
       it "redirected to the shelters index page and sees the new shelter listed" do
-        visit "/shelters"
-
+        visit shelters_path
         click_on "New Shelter"
 
-        expect(current_path).to eq("/shelters/new")
+        expect(current_path).to eq(new_shelter_path)
 
         fill_in "shelter[name]", with: "Rescue Animals"
         fill_in "shelter[address]", with: "282 Kevin Brook"
@@ -17,7 +16,7 @@ RSpec.describe "Shelter creation" do
         fill_in "shelter[zip]", with: "58517"
         click_on "Create Shelter"
 
-        expect(current_path).to eq("/shelters")
+        expect(current_path).to eq(shelters_path)
         expect(page).to have_content("Rescue Animals")
       end
     end

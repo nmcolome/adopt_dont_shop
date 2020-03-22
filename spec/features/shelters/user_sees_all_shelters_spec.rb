@@ -4,9 +4,10 @@ RSpec.describe "Shelter's index" do
   it "returns a list of all the shelters" do
     shelters = create_list(:shelter, 5)
 
-    visit "/shelters"
+    visit shelters_path
 
     expect(page).to have_content(shelters[0].name)
+    expect(page).to have_css("a.index-link", count: 5)
   end
 
   context "User can sort shelters" do
