@@ -46,8 +46,8 @@ Relationship: A Pet belongs to a Shelter.
 | Attributes | Description | Requirement |
 | ----- | ----- |-----|
 | Image | Pet image path (string) | Required |
-| Name | Product name (string) | Required |
-| Description | Product description (text) | Required |
+| Name | Pet name (string) | Required |
+| Description | Brief description of the pet (text) | Required |
 | Approximate age | Age in years (integer) | Required |
 | Sex | Sex (enum - integer) | Required |
 | Status | Active/ Inactive (enum - integer) | Adoptable by default |
